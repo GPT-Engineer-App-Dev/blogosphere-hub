@@ -1,10 +1,14 @@
-import { Container, Text, VStack, Heading, Box, Image, Link, Button } from "@chakra-ui/react";
+import { Container, Text, VStack, Heading, Box, Image, Link, Button, useColorMode } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 
 const Index = ({ posts }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
+        <Button onClick={toggleColorMode} alignSelf="flex-end">
+          Toggle {colorMode === "light" ? "Dark" : "Light"}
+        </Button>
         <Heading as="h1" size="2xl">Welcome to My Personal Blog</Heading>
         <Text fontSize="lg">Sharing my thoughts, experiences, and stories.</Text>
         <Box boxSize="sm">
